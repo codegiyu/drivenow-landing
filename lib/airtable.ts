@@ -1,4 +1,4 @@
-type WaitlistPayload = {
+export type WaitlistPayload = {
   name: string;
   email: string;
   interest: string;
@@ -11,10 +11,18 @@ export async function createWaitlistRecord(payload: WaitlistPayload) {
   const baseId = process.env.AIRTABLE_BASE_ID;
   const tableId = process.env.AIRTABLE_TABLE_ID;
   const apiKey = process.env.AIRTABLE_API_KEY;
+  const requestId = crypto.randomUUID();
 
   if (!baseId || !tableId || !apiKey) {
+    console.error('[waitlist][airtable] Missing Airtable configuration', { requestId });
     throw new Error('Waitlist service is not configured.');
   }
+
+  console.info('[waitlist][airtable] Sending waitlist record', {
+    requestId,
+    tableId,
+    interest: payload.interest,
+  });
 
   const response = await fetch(`${AIRTABLE_API_URL}/${baseId}/${encodeURIComponent(tableId)}`, {
     method: 'POST',
@@ -39,8 +47,19 @@ export async function createWaitlistRecord(payload: WaitlistPayload) {
 
   if (!response.ok) {
     const body = await response.text();
+    console.error('[waitlist][airtable] Airtable request failed', {
+      requestId,
+      status: response.status,
+      statusText: response.statusText,
+      body,
+    });
     throw new Error(body || 'Airtable rejected the waitlist request.');
   }
+
+  console.info('[waitlist][airtable] Waitlist record saved', {
+    requestId,
+    status: response.status,
+  });
 
   return response.json();
 }

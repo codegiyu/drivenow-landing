@@ -6,7 +6,7 @@ import './globals.css';
 import 'sonner/dist/styles.css';
 
 import { SEO_DETAILS } from '@/lib/constants/texts';
-import { DriveNowToaster } from '@/components/ui/sonner-toaster';
+import { Toaster } from '@/components/ui/sonner';
 
 const sans = DM_Sans({
   subsets: ['latin'],
@@ -68,7 +68,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${sans.variable} ${spaceGrotesk.variable} ${playfair.variable}`}>
         {children}
-        <DriveNowToaster />
+        <Toaster />
       </body>
     </html>
   );

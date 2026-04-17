@@ -23,7 +23,15 @@ import { SECTION_BG } from '@/lib/constants/media';
 
 export function WaitlistSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const [interest, setInterest] = useState('');
+  const [note, setNote] = useState('');
+
+  function clearSubmitted() {
+    setSubmitted(false);
+  }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -37,17 +45,15 @@ export function WaitlistSection() {
 
     setIsSubmitting(true);
 
-    const formData = new FormData(event.currentTarget);
-
     try {
       const response = await fetch('/api/waitlist', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name: formData.get('name'),
-          email: formData.get('email'),
+          name,
+          email,
           interest,
-          note: formData.get('note'),
+          note,
         }),
       });
 
@@ -57,8 +63,11 @@ export function WaitlistSection() {
         throw new Error(payload.message ?? 'Something went wrong.');
       }
 
-      event.currentTarget.reset();
+      setSubmitted(true);
+      setName('');
+      setEmail('');
       setInterest('');
+      setNote('');
       toast.success('You’re on the waitlist.', {
         description: payload.message ?? 'We will keep you posted as pilot bookings open.',
       });
@@ -92,7 +101,18 @@ export function WaitlistSection() {
               <form className="grid gap-5" onSubmit={handleSubmit}>
                 <div className="grid gap-2.5">
                   <Label htmlFor="name">Full name</Label>
-                  <Input id="name" name="name" type="text" placeholder="Jane Smith" required />
+                  <Input
+                    id="name"
+                    name="name"
+                    type="text"
+                    placeholder="Jane Smith"
+                    value={name}
+                    onChange={event => {
+                      setName(event.target.value);
+                      clearSubmitted();
+                    }}
+                    required
+                  />
                 </div>
                 <div className="grid gap-2.5">
                   <Label htmlFor="email">Email address</Label>
@@ -101,19 +121,29 @@ export function WaitlistSection() {
                     name="email"
                     type="email"
                     placeholder="jane@example.com"
+                    value={email}
+                    onChange={event => {
+                      setEmail(event.target.value);
+                      clearSubmitted();
+                    }}
                     required
                   />
                 </div>
                 <div className="grid gap-2.5">
                   <Label>I&apos;m a...</Label>
-                  <Select value={interest || undefined} onValueChange={setInterest}>
+                  <Select
+                    value={interest}
+                    onValueChange={value => {
+                      setInterest(value);
+                      clearSubmitted();
+                    }}>
                     <SelectTrigger>
                       <SelectValue placeholder="Select one" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="learner">Learner</SelectItem>
-                      <SelectItem value="instructor">Instructor</SelectItem>
-                      <SelectItem value="partner">Partner / supporter</SelectItem>
+                      <SelectItem value="Learner">Learner</SelectItem>
+                      <SelectItem value="Instructor">Instructor</SelectItem>
+                      <SelectItem value="Partner">Partner / supporter</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -124,10 +154,24 @@ export function WaitlistSection() {
                     name="note"
                     rows={4}
                     placeholder="Anything you'd like us to know..."
+                    value={note}
+                    onChange={event => {
+                      setNote(event.target.value);
+                      clearSubmitted();
+                    }}
                   />
                 </div>
-                <Button type="submit" disabled={isSubmitting} size="lg">
-                  {isSubmitting ? 'Submitting...' : 'Join the waitlist'}
+                <Button
+                  type="submit"
+                  variant={submitted ? 'secondary' : 'default'}
+                  disabled={isSubmitting || submitted}
+                  size="lg"
+                  aria-live="polite">
+                  {isSubmitting
+                    ? 'Submitting...'
+                    : submitted
+                      ? 'You’re on the list'
+                      : 'Join the waitlist'}
                 </Button>
               </form>
             </CardContent>

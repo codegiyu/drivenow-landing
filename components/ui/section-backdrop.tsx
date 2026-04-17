@@ -16,7 +16,7 @@ export function SectionBackdrop({ bgImage, className, children, ...props }: Sect
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-white/74 via-[#fdfffe]/86 to-[#f8fcfa]/92"
+        className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-white/78 via-[#fdfffe]/90 to-[#f6fbf8]/95"
       />
       {children}
     </section>

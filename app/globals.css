@@ -2,7 +2,7 @@
 @import 'tw-animate-css';
 
 @theme inline {
-  --color-background: #f5faf7;
+  --color-background: #f7fcf9;
   --color-foreground: #10201a;
   --color-card: rgba(255, 255, 255, 0.88);
   --color-card-foreground: #10201a;
@@ -12,17 +12,17 @@
   --color-primary-foreground: #ffffff;
   --color-secondary: rgba(86, 118, 255, 0.1);
   --color-secondary-foreground: #2c3ea0;
-  --color-muted: #5f756c;
-  --color-muted-foreground: #5f756c;
+  --color-muted: #647c73;
+  --color-muted-foreground: #647c73;
   --color-accent: rgba(86, 118, 255, 0.1);
   --color-accent-foreground: #3f57d5;
-  --color-border: rgba(16, 48, 36, 0.12);
+  --color-border: rgba(16, 48, 36, 0.09);
   --color-input: rgba(255, 255, 255, 0.95);
   --color-ring: rgba(47, 196, 141, 0.28);
   --radius-sm: 0.75rem;
-  --radius-md: 1rem;
-  --radius-lg: 1.5rem;
-  --radius-xl: 1.75rem;
+  --radius-md: 1.05rem;
+  --radius-lg: 1.6rem;
+  --radius-xl: 1.9rem;
   --font-sans: var(--font-dm-sans);
   --font-heading: var(--font-space-grotesk);
   --font-serif: var(--font-playfair);
@@ -40,9 +40,9 @@
   body {
     @apply min-w-80 bg-background text-base leading-7 text-foreground antialiased sm:text-lg sm:leading-8;
     background:
-      radial-gradient(circle at top, rgba(47, 196, 141, 0.14), transparent 30%),
-      radial-gradient(circle at 92% 4%, rgba(86, 118, 255, 0.12), transparent 26%),
-      linear-gradient(180deg, #f9fdfb 0%, #eef8f3 100%);
+      radial-gradient(circle at top, rgba(47, 196, 141, 0.12), transparent 34%),
+      radial-gradient(circle at 92% 4%, rgba(86, 118, 255, 0.1), transparent 28%),
+      linear-gradient(180deg, #fbfefc 0%, #f1faf5 100%);
     font-family: var(--font-sans), Arial, sans-serif;
   }
 
@@ -106,7 +106,7 @@
   }
 
   .section-kicker {
-    @apply inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-primary;
+    @apply inline-flex items-center rounded-full border border-primary/18 bg-primary/9 px-4 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-primary;
   }
 
   .section-title {
@@ -124,7 +124,7 @@
   }
 
   .glass-card {
-    @apply rounded-[28px] border border-foreground/10 bg-white/88 shadow-[0_20px_56px_rgba(16,32,26,0.1)] backdrop-blur-xl;
+    @apply rounded-[28px] border border-foreground/8 bg-white/92 shadow-[0_16px_44px_rgba(16,32,26,0.08)] backdrop-blur-xl;
   }
 
   .reveal {

@@ -121,19 +121,19 @@ export function ComparisonSection() {
               <table className="w-full border-collapse">
                 <thead>
                   <tr className="bg-primary">
-                    <th className="px-5 py-4 text-left text-xs font-semibold tracking-wide uppercase text-primary-foreground">
+                    <th className="px-5 py-4 text-left text-sm font-semibold tracking-wide uppercase text-primary-foreground">
                       Platform
                     </th>
-                    <th className="px-5 py-4 text-left text-xs font-semibold tracking-wide uppercase text-primary-foreground">
+                    <th className="px-5 py-4 text-left text-sm font-semibold tracking-wide uppercase text-primary-foreground">
                       Commission
                     </th>
-                    <th className="px-5 py-4 text-left text-xs font-semibold tracking-wide uppercase text-primary-foreground">
+                    <th className="px-5 py-4 text-left text-sm font-semibold tracking-wide uppercase text-primary-foreground">
                       Payments
                     </th>
-                    <th className="px-5 py-4 text-left text-xs font-semibold tracking-wide uppercase text-primary-foreground">
+                    <th className="px-5 py-4 text-left text-sm font-semibold tracking-wide uppercase text-primary-foreground">
                       AI matching
                     </th>
-                    <th className="px-5 py-4 text-left text-xs font-semibold tracking-wide uppercase text-primary-foreground">
+                    <th className="px-5 py-4 text-left text-sm font-semibold tracking-wide uppercase text-primary-foreground">
                       UK-native
                     </th>
                   </tr>
@@ -148,7 +148,7 @@ export function ComparisonSection() {
                           : 'border-t border-foreground/8'
                       }>
                       <td
-                        className={`px-5 py-4 text-sm ${
+                        className={`px-5 py-4 text-base ${
                           row.highlight
                             ? 'font-heading text-base font-semibold text-foreground'
                             : 'text-foreground/90'
@@ -156,25 +156,25 @@ export function ComparisonSection() {
                         {row.platform}
                       </td>
                       <td
-                        className={`px-5 py-4 text-sm ${
+                        className={`px-5 py-4 text-base ${
                           row.highlight ? 'text-primary font-medium' : 'text-muted-foreground'
                         }`}>
                         {row.commission}
                       </td>
                       <td
-                        className={`px-5 py-4 text-sm ${
+                        className={`px-5 py-4 text-base ${
                           row.highlight ? 'text-primary font-medium' : 'text-muted-foreground'
                         }`}>
                         {row.payments}
                       </td>
                       <td
-                        className={`px-5 py-4 text-sm ${
+                        className={`px-5 py-4 text-base ${
                           row.highlight ? 'text-primary font-medium' : 'text-muted-foreground'
                         }`}>
                         {row.aiMatching}
                       </td>
                       <td
-                        className={`px-5 py-4 text-sm ${
+                        className={`px-5 py-4 text-base ${
                           row.highlight ? 'text-primary font-medium' : 'text-muted-foreground'
                         }`}>
                         {row.ukNative}
@@ -191,8 +191,10 @@ export function ComparisonSection() {
           <Reveal delay={180}>
             <Card className="h-full rounded-[24px]">
               <CardContent className="p-6">
-                <CardTitle className="mb-3 text-primary">vs EzLicence</CardTitle>
-                <p className="body-copy text-pretty">
+                <CardTitle className="mb-3 text-primary text-lg sm:text-2xl">
+                  vs EzLicence
+                </CardTitle>
+                <p className="text-base text-muted-foreground sm:text-lg text-pretty">
                   EzLicence charges 25% commission plus additional processing fees on top. DriveNow
                   takes a flat 20% — no hidden charges. On a £40 lesson, instructors keep £4 more
                   per hour. That is over £1,500 a year for a busy ADI. EzLicence also issues only
@@ -206,8 +208,8 @@ export function ComparisonSection() {
           <Reveal delay={260}>
             <Card className="h-full rounded-[24px]">
               <CardContent className="p-6">
-                <CardTitle className="mb-3 text-primary">vs CarLer</CardTitle>
-                <p className="body-copy text-pretty">
+                <CardTitle className="mb-3 text-primary text-lg sm:text-2xl">vs CarLer</CardTitle>
+                <p className="text-base text-muted-foreground sm:text-lg text-pretty">
                   CarLer is a free scheduling tool — it does not handle payments at all. Instructors
                   collect money from learners themselves, with no protection, no automation, and no
                   accountability. DriveNow&apos;s Stripe Connect infrastructure collects, splits,

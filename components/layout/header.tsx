@@ -27,10 +27,13 @@ export function Header() {
           <BrandWordmark />
         </Link>
         <nav
-          className="hidden items-center gap-3 text-base text-muted-foreground sm:flex sm:flex-wrap sm:justify-end sm:gap-4"
+          className="hidden items-center gap-3 text-base text-muted-foreground md:flex md:flex-wrap md:justify-end md:gap-8"
           aria-label="Primary">
           {HEADER_NAV_LINKS.map(link => (
-            <a key={link.href} className="transition-colors hover:text-foreground" href={link.href}>
+            <a
+              key={link.href}
+              className="transition-colors hover:text-primary hover:font-semibold"
+              href={link.href}>
               {link.label}
             </a>
           ))}
@@ -41,7 +44,7 @@ export function Header() {
 
         <button
           type="button"
-          className="relative flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-md p-2 text-foreground transition-colors hover:bg-foreground/5 sm:hidden"
+          className="grouprelative flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-[6px] p-2 text-foreground transition-colors hover:bg-primary/5 hover:text-primary md:hidden"
           onClick={() => setMenuOpen(open => !open)}
           aria-expanded={menuOpen}
           aria-controls={menuId}
@@ -75,22 +78,24 @@ export function Header() {
             animate={menuMotion.animate}
             exit={menuMotion.exit}
             transition={menuMotion.transition}
-            className="overflow-hidden border-t border-foreground/10 bg-white/90 backdrop-blur-xl sm:hidden">
-            <div className="site-container flex flex-col gap-3 py-4">
+            className="overflow-hidden border-t border-foreground/10 bg-white/90 backdrop-blur-xl md:hidden">
+            <div className="flex flex-col gap-1.5 py-4">
               {HEADER_NAV_LINKS.map(link => (
                 <a
                   key={link.href}
-                  className="text-base font-medium text-muted-foreground transition-colors hover:text-foreground"
+                  className="text-base font-medium text-muted-foreground transition-colors hover:bg-primary/15 hover:text-primary hover:font-semibold px-4 py-3"
                   href={link.href}
                   onClick={closeMenu}>
                   {link.label}
                 </a>
               ))}
-              <Button asChild size="lg" className="mt-1 w-full">
-                <a href="#waitlist" onClick={closeMenu}>
-                  Join the waitlist
-                </a>
-              </Button>
+              <div className="site-container">
+                <Button asChild size="lg" className="mt-1 w-full">
+                  <a href="#waitlist" onClick={closeMenu} className="w-full">
+                    Join the waitlist
+                  </a>
+                </Button>
+              </div>
             </div>
           </motion.div>
         ) : null}

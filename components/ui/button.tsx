@@ -5,14 +5,14 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-base font-semibold transition-all disabled:pointer-events-none disabled:opacity-50 outline-none focus-visible:ring-[3px] focus-visible:ring-emerald-400/25 [&_svg]:pointer-events-none [&_svg:not([class*="size-"])]:size-4 shrink-0 [&_svg]:shrink-0',
+  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-base font-semibold transition-all duration-200 disabled:pointer-events-none disabled:opacity-50 outline-none focus-visible:ring-[3px] focus-visible:ring-emerald-400/22 [&_svg]:pointer-events-none [&_svg:not([class*="size-"])]:size-4 shrink-0 [&_svg]:shrink-0',
   {
     variants: {
       variant: {
         default:
-          'bg-emerald-400 text-emerald-950 shadow-[0_16px_40px_rgba(47,196,141,0.25)] hover:-translate-y-0.5 hover:bg-emerald-300',
+          'bg-primary text-primary-foreground shadow-[0_12px_28px_rgba(31,159,112,0.22)] hover:-translate-y-0.5 hover:bg-primary/92',
         secondary:
-          'border border-accent-foreground/20 bg-accent text-accent-foreground hover:-translate-y-0.5 hover:bg-accent/75',
+          'border border-accent-foreground/18 bg-accent/82 text-accent-foreground hover:-translate-y-0.5 hover:bg-accent/70',
         ghost: 'text-muted-foreground hover:text-foreground',
       },
       size: {
