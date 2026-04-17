@@ -11,7 +11,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "typecheck": "tsc --noEmit",
-    "check": "npm run lint && npm run format:check && npm run typecheck && npm run build"
+    "checks": "npm run lint && npm run format:check && npm run typecheck && npm run build"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.12",

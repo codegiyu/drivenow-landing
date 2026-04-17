@@ -21,7 +21,7 @@ export function SectionIllustration({
   return (
     <div
       className={cn(
-        'relative aspect-square w-full max-w-[520px] overflow-hidden rounded-[28px] border border-white/8 shadow-[0_24px_80px_rgba(0,0,0,0.35)]',
+        'relative aspect-square w-full max-w-[520px] overflow-hidden rounded-[28px] border border-foreground/10 shadow-[0_20px_56px_rgba(16,32,26,0.1)]',
         alwaysVisible ? 'block' : 'hidden lg:block',
         className
       )}>

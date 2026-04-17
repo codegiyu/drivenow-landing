@@ -19,7 +19,7 @@ const faqs = [
   {
     question: 'Which city are you launching in first?',
     answer:
-      'The current plan is to begin in a major UK city such as Manchester, Birmingham, or Leeds.',
+      'The current plan is to begin in a major UK city such as London, Manchester, or Birmingham.',
   },
   {
     question: 'Are instructors verified?',
@@ -29,7 +29,17 @@ const faqs = [
   {
     question: 'How do payments work?',
     answer:
-      'The wider product roadmap includes secure lesson payments through Stripe once booking functionality goes live.',
+      'The wider product roadmap includes secure in-app lesson payments once booking functionality goes live.',
+  },
+  {
+    question: 'Can I choose between automatic and manual cars?',
+    answer:
+      'Yes. Learners can filter instructors by transmission type and choose between automatic and manual lesson cars.',
+  },
+  {
+    question: 'Will I see vehicle safety information?',
+    answer:
+      'Yes. Instructor profiles are designed to include vehicle make, model, year, and safety rating so learners can book with more confidence.',
   },
   {
     question: 'How can I get access?',
@@ -43,7 +53,7 @@ export function FaqSection() {
     <PageSection
       bgImage={SECTION_BG.faq}
       id="faq"
-      containerClassName="grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-start">
+      containerClassName="grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center">
       <div className="min-w-0">
         <Reveal>
           <SectionHeading caption="FAQs" heading="Answers for early users." />
@@ -63,7 +73,7 @@ export function FaqSection() {
 
       <div className="hidden lg:flex lg:justify-end">
         <SectionIllustration
-          src={SECTION_ILLUS.faq}
+          src={SECTION_ILLUS.waitlist}
           alt=""
           alwaysVisible
           className="max-w-[480px] lg:sticky lg:top-28"

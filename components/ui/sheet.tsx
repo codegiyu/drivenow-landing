@@ -20,7 +20,7 @@ function SheetOverlay({
   return (
     <DialogPrimitive.Overlay
       data-slot="sheet-overlay"
-      className={cn('fixed inset-0 z-50 bg-black/50 backdrop-blur-[2px]', className)}
+      className={cn('fixed inset-0 z-50 bg-foreground/20 backdrop-blur-[2px]', className)}
       {...props}
     />
   );
@@ -33,7 +33,7 @@ const SheetTitle = React.forwardRef<
   <DialogPrimitive.Title
     ref={ref}
     data-slot="sheet-title"
-    className={cn('text-lg font-semibold text-white', className)}
+    className={cn('text-lg font-semibold text-foreground', className)}
     {...props}
   />
 ));
@@ -48,7 +48,9 @@ function SheetContent({
   side?: 'left' | 'right';
 }) {
   const sideClasses =
-    side === 'left' ? 'left-0 border-r border-white/8' : 'right-0 border-l border-white/8';
+    side === 'left'
+      ? 'left-0 border-r border-foreground/10'
+      : 'right-0 border-l border-foreground/10';
 
   return (
     <SheetPortal>
@@ -56,7 +58,7 @@ function SheetContent({
       <DialogPrimitive.Content
         data-slot="sheet-content"
         className={cn(
-          'fixed z-50 mt-0 flex h-[100dvh] w-[92vw] flex-col gap-4 overflow-auto bg-[rgba(14,28,22,0.88)] p-5 shadow-[0_24px_80px_rgba(0,0,0,0.35)] backdrop-blur-xl sm:w-[420px]',
+          'fixed z-50 mt-0 flex h-[100dvh] w-[92vw] flex-col gap-4 overflow-auto bg-white/90 p-5 shadow-[0_20px_56px_rgba(16,32,26,0.18)] backdrop-blur-xl sm:w-[420px]',
           sideClasses,
           className
         )}

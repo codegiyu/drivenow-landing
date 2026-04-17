@@ -33,7 +33,8 @@ export default function GlobalError({
 
   return (
     <html lang="en">
-      <body className={`${sans.variable} ${spaceGrotesk.variable} min-w-80 bg-background text-foreground antialiased`}>
+      <body
+        className={`${sans.variable} ${spaceGrotesk.variable} min-w-80 bg-background text-foreground antialiased`}>
         <main className="page-shell flex min-h-screen items-center justify-center px-4 py-10">
           <div className="site-container">
             <Card className="relative overflow-hidden">
@@ -46,7 +47,7 @@ export default function GlobalError({
                   <p className="font-heading text-6xl font-bold tracking-[-0.05em] text-emerald-300 sm:text-7xl">
                     Error
                   </p>
-                  <h1 className="font-heading text-4xl leading-[0.98] font-bold tracking-[-0.04em] text-white sm:text-5xl">
+                  <h1 className="font-heading text-4xl leading-[0.98] font-bold tracking-[-0.04em] text-foreground sm:text-5xl">
                     The journey hit an unexpected roadblock.
                   </h1>
                   <p className="section-copy mx-auto max-w-2xl text-pretty">

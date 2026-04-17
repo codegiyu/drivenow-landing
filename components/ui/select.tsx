@@ -25,7 +25,7 @@ function SelectTrigger({
     <SelectPrimitive.Trigger
       data-slot="select-trigger"
       className={cn(
-        'flex h-12 w-full items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-base text-white outline-none transition-all focus:ring-[3px] focus:ring-emerald-400/15 data-[placeholder]:text-muted-foreground sm:text-lg',
+        'flex h-12 w-full items-center justify-between rounded-2xl border border-foreground/12 bg-white px-4 py-3 text-base text-foreground outline-none transition-all focus:ring-[3px] focus:ring-primary/15 data-[placeholder]:text-muted-foreground sm:text-lg',
         className
       )}
       {...props}>
@@ -48,7 +48,7 @@ function SelectContent({
       <SelectPrimitive.Content
         data-slot="select-content"
         className={cn(
-          'relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-2xl border border-white/10 bg-zinc-950 text-white shadow-2xl data-[state=open]:animate-in data-[state=closed]:animate-out',
+          'relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-2xl border border-foreground/12 bg-white text-foreground shadow-2xl data-[state=open]:animate-in data-[state=closed]:animate-out',
           position === 'popper' &&
             'data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1',
           className
@@ -88,7 +88,7 @@ function SelectItem({
     <SelectPrimitive.Item
       data-slot="select-item"
       className={cn(
-        'relative flex w-full cursor-default items-center rounded-xl py-2 pl-8 pr-2 text-base outline-none select-none focus:bg-white/8 data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
+        'relative flex w-full cursor-default items-center rounded-xl py-2 pl-8 pr-2 text-base outline-none select-none focus:bg-accent data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
         className
       )}
       {...props}>
@@ -108,7 +108,7 @@ function SelectSeparator({
 }: React.ComponentProps<typeof SelectPrimitive.Separator>) {
   return (
     <SelectPrimitive.Separator
-      className={cn('-mx-1 my-1 h-px bg-white/10', className)}
+      className={cn('-mx-1 my-1 h-px bg-foreground/10', className)}
       {...props}
     />
   );

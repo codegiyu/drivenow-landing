@@ -17,10 +17,9 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { SectionHeading } from '@/components/ui/section-heading';
-import { SectionIllustration } from '@/components/ui/section-illustration';
 import { Textarea } from '@/components/ui/textarea';
 import { Reveal } from '@/components/ui/reveal';
-import { SECTION_BG, SECTION_ILLUS } from '@/lib/constants/media';
+import { SECTION_BG } from '@/lib/constants/media';
 
 export function WaitlistSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -77,8 +76,8 @@ export function WaitlistSection() {
     <PageSection
       bgImage={SECTION_BG.waitlist}
       id="waitlist"
-      containerClassName="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(280px,0.9fr)] lg:items-center">
-      <div className="grid min-w-0 gap-7">
+      containerClassName="grid justify-items-center gap-10">
+      <div className="grid min-w-0 max-w-2xl gap-7 text-center">
         <Reveal>
           <SectionHeading
             caption="Waitlist"
@@ -88,7 +87,7 @@ export function WaitlistSection() {
         </Reveal>
 
         <Reveal delay={120}>
-          <Card className="rounded-[28px]">
+          <Card className="w-full rounded-[28px] text-left">
             <CardContent className="p-6">
               <form className="grid gap-5" onSubmit={handleSubmit}>
                 <div className="grid gap-2.5">
@@ -135,12 +134,6 @@ export function WaitlistSection() {
           </Card>
         </Reveal>
       </div>
-
-      <SectionIllustration
-        src={SECTION_ILLUS.waitlist}
-        alt=""
-        className="lg:max-w-[480px] lg:justify-self-end"
-      />
     </PageSection>
   );
 }

@@ -23,6 +23,7 @@ const pillars = [
 export function ProblemSolutionSection() {
   return (
     <PageSection
+      id="why-drivenow"
       bgImage={SECTION_BG.why}
       containerClassName="grid gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-center">
       <SectionIllustration

@@ -12,7 +12,7 @@ const buttonVariants = cva(
         default:
           'bg-emerald-400 text-emerald-950 shadow-[0_16px_40px_rgba(47,196,141,0.25)] hover:-translate-y-0.5 hover:bg-emerald-300',
         secondary:
-          'border border-white/10 bg-white/5 text-white hover:-translate-y-0.5 hover:bg-white/10',
+          'border border-accent-foreground/20 bg-accent text-accent-foreground hover:-translate-y-0.5 hover:bg-accent/75',
         ghost: 'text-muted-foreground hover:text-foreground',
       },
       size: {

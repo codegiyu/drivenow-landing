@@ -12,7 +12,7 @@ export const SEO_DETAILS = {
   alternates: {
     canonical: SITE_URL,
   },
-  image: `https://pub-81e4b3ca714e4c05870968970387b297.r2.dev/site-preview.png`,
+  image: `https://pub-81e4b3ca714e4c05870968970387b297.r2.dev/site-preview-2.png`,
   icons: `https://pub-81e4b3ca714e4c05870968970387b297.r2.dev/favicon.png`,
   robots: {
     index: true,

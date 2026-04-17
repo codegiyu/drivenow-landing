@@ -6,6 +6,7 @@ import { useCallback, useId, useState } from 'react';
 
 import { BrandWordmark } from '@/components/ui/brand-wordmark';
 import { Button } from '@/components/ui/button';
+import { HEADER_NAV_LINKS } from '@/lib/constants/navigation';
 
 const menuMotion = {
   initial: { height: 0, opacity: 0 },
@@ -20,28 +21,27 @@ export function Header() {
   const closeMenu = useCallback(() => setMenuOpen(false), []);
 
   return (
-    <header className="sticky top-0 z-20 border-b border-white/5 bg-black/30 backdrop-blur-xl">
+    <header className="sticky top-0 z-20 border-b border-foreground/10 bg-white/80 backdrop-blur-xl">
       <div className="site-container flex items-center justify-between gap-4 py-4">
         <Link href="/" className="inline-flex" aria-label="DriveNow homepage">
           <BrandWordmark />
         </Link>
         <nav
-          className="hidden items-center gap-4 text-base text-muted-foreground sm:flex sm:gap-5"
+          className="hidden items-center gap-3 text-base text-muted-foreground sm:flex sm:flex-wrap sm:justify-end sm:gap-4"
           aria-label="Primary">
-          <a className="transition-colors hover:text-white" href="#faq">
-            FAQ
-          </a>
-          <a className="transition-colors hover:text-white" href="#waitlist">
-            Waitlist
-          </a>
+          {HEADER_NAV_LINKS.map(link => (
+            <a key={link.href} className="transition-colors hover:text-foreground" href={link.href}>
+              {link.label}
+            </a>
+          ))}
           <Button asChild className="hidden sm:inline-flex">
-            <a href="#waitlist">Get early access</a>
+            <a href="#waitlist">Join the waitlist</a>
           </Button>
         </nav>
 
         <button
           type="button"
-          className="relative flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-md p-2 text-foreground transition-colors hover:bg-white/5 sm:hidden"
+          className="relative flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-md p-2 text-foreground transition-colors hover:bg-foreground/5 sm:hidden"
           onClick={() => setMenuOpen(open => !open)}
           aria-expanded={menuOpen}
           aria-controls={menuId}
@@ -75,23 +75,20 @@ export function Header() {
             animate={menuMotion.animate}
             exit={menuMotion.exit}
             transition={menuMotion.transition}
-            className="overflow-hidden border-t border-white/5 bg-black/20 backdrop-blur-xl sm:hidden">
+            className="overflow-hidden border-t border-foreground/10 bg-white/90 backdrop-blur-xl sm:hidden">
             <div className="site-container flex flex-col gap-3 py-4">
-              <a
-                className="text-base font-medium text-muted-foreground transition-colors hover:text-foreground"
-                href="#faq"
-                onClick={closeMenu}>
-                FAQ
-              </a>
-              <a
-                className="text-base font-medium text-muted-foreground transition-colors hover:text-foreground"
-                href="#waitlist"
-                onClick={closeMenu}>
-                Waitlist
-              </a>
+              {HEADER_NAV_LINKS.map(link => (
+                <a
+                  key={link.href}
+                  className="text-base font-medium text-muted-foreground transition-colors hover:text-foreground"
+                  href={link.href}
+                  onClick={closeMenu}>
+                  {link.label}
+                </a>
+              ))}
               <Button asChild size="lg" className="mt-1 w-full">
                 <a href="#waitlist" onClick={closeMenu}>
-                  Get early access
+                  Join the waitlist
                 </a>
               </Button>
             </div>
